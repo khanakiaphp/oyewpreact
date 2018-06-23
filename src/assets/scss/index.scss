@@ -1,0 +1,29 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	/*background: #f4f8f9;*/
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+
+}
+
+#app, .main, .page {
+	height: 100%;
+}
+
+input, .form-control:focus {
+	box-shadow: none;
+}
+
+.clickable {
+     cursor: pointer
+}
+
+// Bootstrap Conflict with Woocommerce fix
+.woocommerce{
+	.col-1, .col-2{
+		max-width:none;
+	}
+}
