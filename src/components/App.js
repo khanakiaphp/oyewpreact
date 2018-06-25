@@ -1,46 +1,34 @@
 import React, { Component } from 'react'
-
-import Nav from './Nav'
-import Header from './Header'
-import Footer from './Footer'
-import Article from './Article'
-import TheContent from './TheContent'
-
+import GetComponent from './GetComponent'
+import classnames from 'classnames'
 class App extends Component {
     constructor(props) {
         super(props)
     }
 
-    componentDidMount() {
-        console.log(this.props)
+    static defaultProps = {
+        block: {
+            acf_fc_layout: null,
+            section_css_class: null
+        }
     }
 
-    getBlockComponent (block) {
-        switch (block.type) {
-            case 'header':
-                return <Header key={block.id} {...block.data} />
-
-            case 'footer':
-                return <Footer key={block.id} {...block.data} />
-
-            case 'navbar':
-                return <Nav key={block.id} {...block.data} />
-            
-            case 'article':
-                return <Article key={block.id} {...block.data} />
-                
-            case 'the_content':
-                return <TheContent key={block.id} {...block.data} />
-
-            default:
-                return null
-        }
+    componentDidMount() {
+        // console.log(this.props)
     }
 
     render() {
         return (
             <div>
-                { this.props.components.map(block => this.getBlockComponent(block)) }
+                { this.props.components.map((block, i) => {
+                        const cssClass = classnames('section-'+block.acf_fc_layout, block.section_css_class)
+                        return (
+                            <section key={i} className={cssClass}>
+                                <GetComponent block={block} />
+                            </section>
+                        )
+                    } ) 
+                }
             </div>
         );
     }

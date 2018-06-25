@@ -13,6 +13,11 @@ body {
 	height: 100%;
 }
 
+.w1200 {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 input, .form-control:focus {
 	box-shadow: none;
 }
@@ -26,4 +31,11 @@ input, .form-control:focus {
 	.col-1, .col-2{
 		max-width:none;
 	}
+}
+
+
+
+.orow {
+	display: flex;
+	justify-content: space-between;
 }
