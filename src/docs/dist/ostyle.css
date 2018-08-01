@@ -1,0 +1,28 @@
+html, body {
+  height: 100%; }
+
+body {
+  /*background: #f4f8f9;*/
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px; }
+
+#app, .main, .page {
+  height: 100%; }
+
+.w1200 {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+input, .form-control:focus {
+  box-shadow: none; }
+
+.clickable {
+  cursor: pointer; }
+
+.woocommerce .col-1, .woocommerce .col-2 {
+  max-width: none; }
+
+.orow {
+  display: flex;
+  justify-content: space-between; }
+

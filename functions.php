@@ -24,6 +24,10 @@ add_action('wp_head', function() use ($variables){
 
 
 add_action( 'wp_enqueue_scripts', 'oye_scripts' );
+
+$template_directory_url = get_template_directory_uri();
+define("DIST_DIR_OYE", $template_directory_url.'/src/docs/dist');
+
 function oye_scripts() {
 
     global $variables;
@@ -31,13 +35,12 @@ function oye_scripts() {
 
     $sandboxMode = get_field('sandbox_mode', 'option');
 
-    wp_enqueue_script( "js-vendor", $template_directory_url."/dist/vendor.js", array(), '');
-    wp_enqueue_script( "js-main", $template_directory_url."/dist/main.js", array(), '');
-    // wp_enqueue_script( "js-vendor-runtime", $template_directory_url."/dist/runtime~vendor.js", array(), '', 1);
-    wp_enqueue_script( "js-main-runtime", $template_directory_url."/dist/runtime~main.js", array(), '');
-
-    wp_enqueue_style( 'css-vendor', $template_directory_url.'/dist/vendors.css', array(), '' );
-    wp_enqueue_style( 'css-main', $template_directory_url.'/dist/style.css', array(), '' );
+    wp_enqueue_script( "js-vendor", DIST_DIR_OYE."/vendor.js", array(), '');
+    wp_enqueue_script( "js-main", DIST_DIR_OYE."/main.js", array(), '');
+    // wp_enqueue_script( "js-vendor-runtime", DIST_DIR_OYE."/runtime~vendor.js", array(), '', 1);
+    wp_enqueue_script( "js-main-runtime", DIST_DIR_OYE."/runtime~main.js", array(), '');
+    wp_enqueue_style( 'css-vendor', DIST_DIR_OYE.'/vendor-style.css', array(), '' );
+    wp_enqueue_style( 'css-oystyle', DIST_DIR_OYE.'/custom-style.css', array(), '' );
 
     
     // if($sandboxMode) {

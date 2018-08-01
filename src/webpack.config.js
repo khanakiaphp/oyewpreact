@@ -8,10 +8,11 @@ var browserConfig = {
     devtool: "source-map",
 
     entry: {
-        main: [path.resolve(__dirname, './src/index.js')],
+        main: [path.resolve(__dirname, './index.js')],
+        "main-client": [path.resolve(__dirname, './index.client.js')],
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './docs/dist'),
         // filename: 'bundle.js',
         // publicPath: '/'
         filename: '[name].js',
@@ -55,24 +56,22 @@ var browserConfig = {
 }
 
 
-
-
 var cssConfig = {
     mode: 'development',
     target: 'node',
     entry: {
-        vendors: path.resolve(__dirname, './src/assets/index.js'),
-        style: path.resolve(__dirname, './src/assets/scss/index.scss'),
+        'vendor-style': path.resolve(__dirname, './assets/index.js'),
+        'custom-style': path.resolve(__dirname, './assets/scss/index.scss'),
+        'client-demo': path.resolve(__dirname, './assets/scss/client-demo.scss'),
     },
+
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './docs/dist'),
         filename: '[name].js',
     },
 
     module: {
-
         rules: [
-
             {
                 test: /\.(jpg|jpeg|png|gif)$/,
                 use: "url-loader?limit=1000",

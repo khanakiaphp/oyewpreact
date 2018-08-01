@@ -3,5 +3,5 @@ import '@bower_components/font-awesome/css/font-awesome.css';  // or 'antd/dist/
 
 
 import '../components/Nav/styles/default.scss'
-import '../components/Header/styles/default.scss'
+import '../components/Header/styles/index.scss'
 import '../components/Shared/styles/default.scss'

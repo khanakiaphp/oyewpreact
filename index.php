@@ -111,7 +111,8 @@
 	}
 
 	$data = json_encode(array(
-		'components' => $components
+		'components' => $components,
+		'layout' => $fields['layout'] ?: null
 	));
 
 	debug_to_console($components);
@@ -122,10 +123,10 @@
 
 	$react[] = "var console = {log: function(){}, warn: function(){}, error: print};";
     $react[] = "var global = global || this, self = self || this, window = window || this;";
-	$react[] = file_get_contents($template_directory . '/dist/vendor.js');
-	$react[] = file_get_contents($template_directory . '/dist/main.js');
-	// $react[] = file_get_contents($template_directory . '/dist/runtime~vendor.js');
-	$react[] = file_get_contents($template_directory . '/dist/runtime~main.js');
+	$react[] = file_get_contents(DIST_DIR_OYE.'/vendor.js');
+	$react[] = file_get_contents(DIST_DIR_OYE.'/main.js');
+	// $react[] = file_get_contents(DIST_DIR_OYE.'/runtime~vendor.js');
+	$react[] = file_get_contents(DIST_DIR_OYE.'/runtime~main.js');
     $react[] = "var React = global.React, ReactDOM = global.ReactDOM, ReactDOMServer = global.ReactDOMServer;";
 	$react = implode(";\n", $react);
 	try {
